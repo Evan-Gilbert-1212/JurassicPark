@@ -73,7 +73,7 @@ namespace JurassicPark
 
             while (!Int32.TryParse(dinosaurEnclosure, out intDinosaurEnclosure))
             {
-              Console.WriteLine("Please enter a valid enclosure number. Enclosure number should be a whole number.");
+              Console.WriteLine("Please enter a valid enclosure number. The enclosure number should be a whole number.");
 
               dinosaurEnclosure = Console.ReadLine();
             }
@@ -98,13 +98,32 @@ namespace JurassicPark
 
             break;
           case "transfer":
-            Console.WriteLine("TRANSFER LOGIC TO BE ADDED");
+            Console.WriteLine("Please type the NAME of the dinosaur you want to transfer to a new enclosure.");
+
+            var dinosaurToTransfer = Console.ReadLine();
+
+            Console.WriteLine("Please enter the new enclosure number for this dinosaur.");
+
+            var newEnclosureNumber = Console.ReadLine();
+            var intNewEnclosureNumber = 0;
+
+            while (!Int32.TryParse(newEnclosureNumber, out intNewEnclosureNumber))
+            {
+              Console.WriteLine("Please enter a valid enclosure number. The enclosure number should be a whole number.");
+
+              newEnclosureNumber = Console.ReadLine();
+            }
+
+            dinosaurManager.TransferDinosaur(dinosaurToTransfer, intNewEnclosureNumber);
+
             break;
           case "heaviest":
-            Console.WriteLine("HEAVIEST LOGIC TO BE ADDED");
+            dinosaurManager.DisplayHeaviestDinosaurs();
+
             break;
           case "diet":
-            Console.WriteLine("DIET LOGIC TO BE ADDED");
+            dinosaurManager.DisplayDietSummary();
+
             break;
           case "quit":
             isRunning = false;

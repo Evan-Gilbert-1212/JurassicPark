@@ -4,9 +4,6 @@ namespace JurassicPark
 {
   public class Dinosaur
   {
-    //Dinosaur ID
-    public int ID { get; set; }
-
     //Dinosaur Name
     public string Name { get; set; }
 
